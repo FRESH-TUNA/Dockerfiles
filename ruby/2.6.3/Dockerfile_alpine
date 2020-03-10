@@ -3,13 +3,13 @@ FROM alpine:3.10
 ENV RUBY_VERSION 2.6.3
 ENV RUBY_INSTALL_PACKAGE 0.7.0
 
-# update packages and install required packages
+# install required packages
 RUN apk --no-cache add build-base \
                        linux-headers \ 
                        libressl-dev \
                        zlib-dev \
                        bash
-#ruby install
+# ruby install
 WORKDIR /ruby-install
 RUN wget -O ruby-install-${RUBY_INSTALL_PACKAGE}.tar.gz https://github.com/postmodern/ruby-install/archive/v${RUBY_INSTALL_PACKAGE}.tar.gz \
     && tar -xzvf ruby-install-${RUBY_INSTALL_PACKAGE}.tar.gz \
@@ -19,3 +19,5 @@ RUN wget -O ruby-install-${RUBY_INSTALL_PACKAGE}.tar.gz https://github.com/postm
     && rm -rf /ruby-install \
     && gem install bundler && rm -rf /tmp/* /var/tmp/* /usr/lib/ruby/gems/*/cache/*.gem \
     && ruby -v
+
+WORKDIR /
