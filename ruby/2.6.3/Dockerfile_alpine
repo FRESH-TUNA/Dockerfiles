@@ -17,5 +17,5 @@ RUN wget -O ruby-install-${RUBY_INSTALL_PACKAGE}.tar.gz https://github.com/postm
     && make install && ruby-install --system ruby ${RUBY_VERSION} \
     && cd / \
     && rm -rf /ruby-install \
-    && gem install bundler && rm -rf /tmp/* /var/tmp/* /usr/lib/ruby/gems/*/cache/*.gem
+    && gem install bundler && rm -rf /tmp/* /var/tmp/* /usr/lib/ruby/gems/*/cache/*.gem \
     && ruby -v
