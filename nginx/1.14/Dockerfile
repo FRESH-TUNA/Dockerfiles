@@ -1,6 +1,6 @@
 FROM debian:buster-20200607
 RUN apt update \
-    && apt install -y curl gnupg2 ca-certificates lsb-release \            
+    && apt install -y curl gnupg2 ca-certificates lsb-release supervisor \            
     && rm -rf /var/lib/apt/lists/*
 
 RUN echo "deb http://nginx.org/packages/debian `lsb_release -cs` nginx" \
@@ -14,4 +14,4 @@ RUN apt update \
 
 COPY ./nginx.supervisord.conf /etc/supervisor/conf.d
 
-ENTRYPOINT ["supervisord"]
+ENTRYPOINT ["/usr/bin/supervisord"]
