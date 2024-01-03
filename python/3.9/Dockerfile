@@ -17,7 +17,7 @@ LABEL MAINTAINER="tunakim1004@gmail.com"
 # 이를 통해 python 이라 명령해도 python3를 실행시켜 줍니다.
 # python 패키지를 실행하는 과정에서 자동으로 실행됩니다.
 # ln -sf python3 /usr/bin/python
-RUN apk add --update --no-cache python${PYTHON_VERSION}
+RUN apk add --update --no-cache python${PYTHON_VERSION} py3-pip
 
 # CMD: 빌드된 컨테이너가 실행되었을때 실행할 구문을 작성합니다.
 CMD ["python3"]
